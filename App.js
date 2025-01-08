@@ -3,9 +3,9 @@ import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { store } from './src/store/store';
-import HomeScreen from './src/screens/HomeScreen';
-import AddStudentScreen from './src/screens/AddStudentScreen';
-import EditStudentScreen from './src/screens/EditStudentScreen';
+import HomePage from './src/screens/HomePage';
+import StudentPage from './src/screens/StudentPage';
+import UniversityPage from './src/screens/UniversityPage';
 
 const Stack = createStackNavigator();
 
@@ -14,9 +14,9 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="AddStudent" component={AddStudentScreen} />
-          <Stack.Screen name="EditStudent" component={EditStudentScreen} />
+          <Stack.Screen name="Home" component={HomePage} />
+          <Stack.Screen name="Students" component={StudentPage} />
+          <Stack.Screen name="Universities" component={UniversityPage} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

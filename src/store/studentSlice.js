@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const studentSlice = createSlice({
   name: 'students',
   initialState: [
-    { id: 1, name: 'John Doe', age: 18 },
-    { id: 2, name: 'Jane Smith', age: 20 },
+    { id: 1, name: 'John Doe', birthDate: '2005-01-01', universityId: 1 },
+    { id: 2, name: 'Jane Smith', birthDate: '2004-05-12', universityId: 2 },
   ],
   reducers: {
     addStudent: (state, action) => {
@@ -16,8 +16,11 @@ const studentSlice = createSlice({
         state[index] = action.payload;
       }
     },
+    deleteStudent: (state, action) => {
+      return state.filter(student => student.id !== action.payload);
+    },
   },
 });
 
-export const { addStudent, updateStudent } = studentSlice.actions;
+export const { addStudent, updateStudent, deleteStudent } = studentSlice.actions;
 export default studentSlice.reducer;
